@@ -16,6 +16,10 @@
     <%= f.text_field :name %>
   </div>
   <div class="field">
+    <%= f.label :instructions %><br />
+    <%= f.text_area :instructions %>
+  </div>
+  <div class="field">
     <%= f.label :difficulty %><br />
     <%= f.number_field :difficulty %>
   </div>
@@ -43,12 +47,8 @@
     <% end %>
   </div>
 
-  <p>Fehlt eine Zutat?  Dann müsste die zuerst <%= link_to "angelegt werden", new_ingredient_path %>.</p>
+  <p><%= link_to "Neue Zutat hinzufügen", new_ingredient_path, id: "new_ingredient_link" %></p>
 
-  <div class="field">
-    <%= f.label :instructions %><br />
-    <%= f.text_area :instructions %>
-  </div>
   <div class="actions">
     <%= f.submit %>
   </div>
