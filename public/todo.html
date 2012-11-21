@@ -13,6 +13,12 @@
         color: #333;
       }
 
+      kbd {
+        color: black;
+        font-family: monospace;
+        font-weight: bold;
+      }
+
       h1 {
         font-size: 28px;
         color: #000;
@@ -144,9 +150,11 @@
         font-size: 18px;
         color: #333;
       }
-      #getting-started li p {
+      #getting-started li p, 
+      #getting-started li li {
         color: #555;
         font-size: 13px;
+        margin-bottom: 13px;
       }
 
 
@@ -233,16 +241,33 @@
               <p>Study <a href="/draft.html">the draft</a>: which parts
               of the html go into the layout? the view? a partial? Study the layout that's
               already there: which parts do you need to preserve?</p>
+              <p>This step should be a git commit!</p>
             </li>
 
             <li>
-              <h2></h2>
-              <p></p>
+              <h2>Move CSS and img over to Asset Pipeline</h2>
+              <p>Which part of the existing Stylesheet should be turned into
+              sass?  Use convert-sass on the command line to do it.  Which
+              part should remain plain css?  Just copy it over. Don't forget
+              to test in your browser! 
+              </p>
+              <p>This step should be a git commit!</p>
             </li>
 
             <li>
-              <h2></h2>
-              <p></p>
+              <h2>Assets in production</h2>
+              <p>Now check out your app a second time from git, and run it in
+              production. A few things are different:</p>
+              <ul>
+                <li>Rake tasks: add <kbd>RAILS_ENV="production"</kbd> at the end
+                of the command.</li>
+                <li>Rails server: <kbd>rails s -e production</kbd>.</li>
+                <li>Rails console: <kbd>rails c production</kbd>.</li>
+              </ul>
+
+              <p>If you use only webrick: <kbd>set config.serve_static_assets = true</kbd>. 
+              You could try apache + mod_passenger instead.</p>
+              <p>Where are the compiled assets now?</p>
             </li>
 
             <li>
