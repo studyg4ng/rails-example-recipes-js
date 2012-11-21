@@ -7,7 +7,7 @@ class RecipesController < ApplicationController
       @description = "Rezepte mit '#{params[:search]}' im Namen"
     elsif ! params[:wanted_ingredient_ids].nil? and ! params[:wanted_ingredient_ids].empty? then
       @recipes = Recipe.find_by_ingredients( params[:wanted_ingredient_ids] )
-      ingredients = Ingredient.find(["2", "3"]).map(&:name)
+      ingredients = Ingredient.find( params[:wanted_ingredient_ids] ).map(&:name)
       @description = "Rezepte die #{ingredients.join(' und ')} enthalten"
     else
       @recipes = Recipe.all
