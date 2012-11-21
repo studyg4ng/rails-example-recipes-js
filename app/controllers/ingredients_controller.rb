@@ -16,12 +16,8 @@ class IngredientsController < ApplicationController
 
   # POST /ingredients
   def create
-    @ingredient = Ingredient.new(params[:ingredient])
-    if @ingredient.save
-      redirect_to ingredients_path, notice: 'Ingredient was successfully created.'
-    else
-      render action: "new"
-    end
+    @ingredient = Ingredient.create!(params[:ingredient])
+    redirect_to ingredients_path, notice: 'Ingredient was successfully created.'
   end
 
   # PUT /ingredients/1
