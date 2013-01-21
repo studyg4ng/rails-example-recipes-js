@@ -1,4 +1,9 @@
-Repository web_2012/example/rezepte
-===================================
+Recipes
+=======
 
-created Mon Nov 19 01:01:19 CET 2012
+a ruby on rails example app
+to learn about the asset pipeline
+
+start the server and look at the homepage,
+or look at public/todo.html directly.
+
