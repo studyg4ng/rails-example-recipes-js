@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Ruby on Rails: The Cooking on Rails Exercise</title>
+    <style type="text/css" media="screen">
+      body {
+        margin: 0;
+        margin-bottom: 25px;
+        padding: 0;
+        background-color: #f0f0f0;
+        font-family: "Lucida Grande", "Bitstream Vera Sans", "Verdana";
+        font-size: 13px;
+        color: #333;
+      }
+
+      kbd {
+        color: black;
+        font-family: monospace;
+        font-weight: bold;
+      }
+
+      h1 {
+        font-size: 28px;
+        color: #000;
+      }
+
+      a  {color: #03c}
+      a:hover {
+        background-color: #03c;
+        color: white;
+        text-decoration: none;
+      }
+
+
+      #page {
+        background-color: #f0f0f0;
+        width: 750px;
+        margin: 0;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      #content {
+        float: left;
+        background-color: white;
+        border: 3px solid #aaa;
+        border-top: none;
+        padding: 25px;
+        width: 500px;
+      }
+
+      #sidebar {
+        float: right;
+        width: 175px;
+      }
+
+      #footer {
+        clear: both;
+      }
+
+      #header, #about, #getting-started {
+        padding-left: 75px;
+        padding-right: 30px;
+      }
+
+
+      #header {
+        background-image: url("assets/rails.png");
+        background-repeat: no-repeat;
+        background-position: top left;
+        height: 64px;
+      }
+      #header h1, #header h2 {margin: 0}
+      #header h2 {
+        color: #888;
+        font-weight: normal;
+        font-size: 16px;
+      }
+
+
+      #about h3 {
+        margin: 0;
+        margin-bottom: 10px;
+        font-size: 14px;
+      }
+
+      #about-content {
+        background-color: #ffd;
+        border: 1px solid #fc0;
+        margin-left: -55px;
+        margin-right: -10px;
+      }
+      #about-content table {
+        margin-top: 10px;
+        margin-bottom: 10px;
+        font-size: 11px;
+        border-collapse: collapse;
+      }
+      #about-content td {
+        padding: 10px;
+        padding-top: 3px;
+        padding-bottom: 3px;
+      }
+      #about-content td.name  {color: #555}
+      #about-content td.value {color: #000}
+
+      #about-content ul {
+        padding: 0;
+        list-style-type: none;
+      }
+
+      #about-content.failure {
+        background-color: #fcc;
+        border: 1px solid #f00;
+      }
+      #about-content.failure p {
+        margin: 0;
+        padding: 10px;
+      }
+
+
+      #getting-started {
+        border-top: 1px solid #ccc;
+        margin-top: 25px;
+        padding-top: 15px;
+      }
+      #getting-started h1 {
+        margin: 0;
+        font-size: 20px;
+      }
+      #getting-started h2 {
+        margin: 0;
+        font-size: 14px;
+        font-weight: normal;
+        color: #333;
+        margin-bottom: 25px;
+      }
+      #getting-started ol {
+        margin-left: 0;
+        padding-left: 0;
+      }
+      #getting-started li {
+        font-size: 18px;
+        color: #888;
+        margin-bottom: 25px;
+      }
+      #getting-started li h2 {
+        margin: 0;
+        font-weight: normal;
+        font-size: 18px;
+        color: #333;
+      }
+      #getting-started li p, 
+      #getting-started li li {
+        color: #555;
+        font-size: 13px;
+        margin-bottom: 13px;
+      }
+
+
+      #sidebar ul {
+        margin-left: 0;
+        padding-left: 0;
+      }
+      #sidebar ul h3 {
+        margin-top: 25px;
+        font-size: 16px;
+        padding-bottom: 10px;
+        border-bottom: 1px solid #ccc;
+      }
+      #sidebar li {
+        list-style-type: none;
+      }
+      #sidebar ul.links li {
+        margin-bottom: 5px;
+      }
+
+      .filename {
+        font-style: italic;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="page">
+      <div id="sidebar">
+        <ul id="sidebar-items">
+          <li>
+            <h3>Look a the pages</h3>
+            <ul class="links">
+              <li><a href="/">static_pages#home</a></li>
+              <li><a href="/about/">static_pages#about</a></li>
+              <li><a href="/recipes/">Recipes</a></li>
+              <li><a href="/recipes/search">Search Recipe</a></li>
+              <li><a href="/recipes/new">New Recipe</a></li>
+              <li><a href="/recipes/2/edit">Edit Recipe</a></li>
+              <li><a href="/recipes/1">Show 1st Recipe</a></li>
+              <li><a href="/ingredients/">Ingredients</a></li>
+              <li><a href="/ingredients/new">New Ingredients</a></li>
+              <li><a href="/ingredients/1/edit">Edit Ingredient</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+
+      <div id="content">
+        <div id="header">
+          <h1>Cooking on Rails Exercise</h1>
+          <h2>Learn about the asset pipeline</h2>
+        </div>
+
+        <div id="about">
+          <h3><a href="rails/info/properties" onclick="about(); return false">About your application&rsquo;s environment</a></h3>
+          <div id="about-content" style="display: none"></div>
+        </div>
+
+        <div id="getting-started">
+          <h1>What to do</h1>
+
+          <ol>
+            <li>
+              <h2>Load seed data</h2>
+              <p>What is seed data?  Where is the actual file located? 
+              And what was that rake task to load it?</p>
+            </li>
+
+            <li>
+              <h2>Create HTML</h2>
+              <p>Study <a href="/draft.html">the draft</a>: which parts
+              of the html go into the layout? the view? a partial? Study the layout that's
+              already there: which parts do you need to preserve?</p>
+              <p>This step should be a git commit!</p>
+            </li>
+
+            <li>
+              <h2>Move CSS and img over to Asset Pipeline</h2>
+              <p>Which part of the existing Stylesheet should be turned into
+              sass?  Use convert-sass on the command line to do it.  Which
+              part should remain plain css?  Just copy it over. Don't forget
+              to test in your browser! 
+              </p>
+              <p>This step should be a git commit!</p>
+            </li>
+
+            <li>
+              <h2>Assets in production</h2>
+              <p>Now check out your app a second time from git, and run it in
+              production. A few things are different:</p>
+              <ul>
+                <li>Rake tasks: add <kbd>RAILS_ENV="production"</kbd> at the end
+                of the command.</li>
+                <li>Rails server: <kbd>rails s -e production</kbd>.</li>
+                <li>Rails console: <kbd>rails c production</kbd>.</li>
+              </ul>
+
+              <p>Where are the compiled assets now?</p>
+            </li>
+
+            <li>
+              <h2>Javascript, jQuery, AJAX</h2>
+              <p>Back in development: Watch <b>Railscast #136 jQuery
+                &amp; Ajax (revised)</b>. Use what you learn there
+              to make adding an ingredient while creating a new Recipe easier.
+              (load and send the new_ingredient form with ajax)</p>
+            </li>
+          </ol>
+        </div>
+      </div>
+
+      <div id="footer">&nbsp;</div>
+    </div>
+  </body>
+</html>

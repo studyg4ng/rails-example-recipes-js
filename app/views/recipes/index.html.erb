@@ -1,0 +1,33 @@
+<h1>Rezepte</h1>
+
+<p><%= @description %>.</p>
+
+<%= link_to 'New Recipe', new_recipe_path %>
+<table border="1">
+  <% @recipes.each do |recipe| %>
+    <tr>
+      <td>
+        <h2><%= link_to recipe.name, recipe %></h2>
+
+        <ul>
+          <li> Schwierigkeit: <%= recipe.difficulty %> </li>
+          <li> Bewertung: <%= recipe.grade %> </li>
+          <li> Für <%= recipe.quantity %> Personen </li>
+          <li> Zubereitungszeit: <%= recipe.minutes %>A Minuten </li>
+        </ul>
+      </td>
+      <td>
+        <h2>Zutaten</h2>
+        <%= render :partial => "ingredients", :locals => { :r => recipe } %>
+
+      </td>
+      <td>
+        <h2>Admin Only</h2>
+        <ul>
+          <li><%= link_to 'Edit', edit_recipe_path(recipe) %></li>
+          <li><%= link_to 'Destroy', recipe, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+        </ul>
+      </td>
+    </tr>
+  <% end %>
+</table>
