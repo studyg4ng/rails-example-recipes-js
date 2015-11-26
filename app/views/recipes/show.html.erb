@@ -1,15 +1,17 @@
-<h1><%= @recipe.name %></h1>
-
-<ul>
-<li> Schwierigkeit: <%= @recipe.difficulty %> </li>
-<li> Bewertung: <%= @recipe.grade %> </li>
-<li> Für <%= @recipe.quantity %> Personen </li>
-<li> Zubereitungszeit: <%= @recipe.minutes %> Minuten </li>
-</ul>
-
-<h2>Zutaten</h2>
-
-<%= render :partial => "ingredients", :locals => { :r => @recipe } %>
+<% content_for :heading do %>
+  <h1><%= @recipe.name %></h1>
+<% end %>
+<div class="row">
+  <div class="col-xs-3">
+    <p> Schwierigkeit: <%= @recipe.difficulty %> </p>
+    <p> Bewertung: <%= @recipe.grade %> </p>
+    <p> Für <%= @recipe.quantity %> Personen </p>
+    <p> Zubereitungszeit: <%= @recipe.minutes %> Minuten </p>
+  </div>
+  <div class="col-xs-6">
+    <%= render :partial => "ingredients", :locals => { :r => @recipe } %>
+  </div>
+</div>
 
 <h2>Zubereitung</h2>
 

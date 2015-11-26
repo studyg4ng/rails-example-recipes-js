@@ -4,7 +4,9 @@
   }
 </style>
 
-<h1>Suche</h1>
+<% content_for :heading do %>
+  <h1>Suche</h1>
+<% end %>
 
 
 <h2>Nach dem Namen des Rezeptes</h2>
@@ -18,7 +20,7 @@
   </div>
 <% end %>
 
-<h2>Nach Gewünschte Zutaten</h2>
+<h2>Nach den gewünschten Zutaten</h2>
 <%= form_tag recipes_path, :method => :get do %>
   <div class="field multi">
     <% Ingredient.all.each do |ingredient| %>

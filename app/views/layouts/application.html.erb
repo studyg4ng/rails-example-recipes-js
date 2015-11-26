@@ -7,8 +7,38 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <div class="container-fullwidth" id="headerbar">
+    <div class="container">
+      <%= link_to root_path do %>
+        <%= image_tag "logo.png" %>
+      <% end %>
+     </div>
 
-<%= yield %>
+  </div>
+
+  <div id="main-container" class="container">
+    <div class="row">
+      <div class="col-xs-3">
+        &nbsp;
+      </div>
+      <div class="col-xs-9">
+        <%= yield :heading %>
+      </div>
+    </div>
+    <div class="row">
+      <div id="sidebar" class="col-xs-3">
+        <ul class="nav nav-pills nav-stacked">
+          <li><%= link_to "Home", root_path %></li>
+          <li><%= link_to "Rezept suchen", search_recipes_path %></li>
+          <li><%= link_to "Rezept erstellen", new_recipe_path %></li>
+          <li><%= link_to "About", about_path %></li>
+        </ul>
+      </div>
+      <div id="content" class="col-xs-9">
+        <%= yield %>
+      </div>
+    </div>
+  </div>
 
 </body>
 </html>

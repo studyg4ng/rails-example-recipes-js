@@ -1,5 +1,6 @@
-<h1>New Recipe</h1>
+<% content_for :heading do %>
+  <h1>Neues Rezept speichern</h1>
+<% end %>
 
 <%= render 'form' %>
 
-<%= link_to 'Back', recipes_path %>
