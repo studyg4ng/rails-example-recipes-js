@@ -11,26 +11,24 @@
 
 <h2>Nach dem Namen des Rezeptes</h2>
 
-<%= form_tag recipes_path, :method => :get do %>
-  <div class="field">
-    <label>Name des Rezepts: <%= text_field_tag :search %></label>
-  </div>
-  <div class="actions">
-    <%= submit_tag "Suchen" %>
-  </div>
+<%= bootstrap_form_tag url: recipes_path do |f| %>
+  <%= f.text_field :search, label: 'Suchbegriff' %>
+  <%= f.submit "Suchen" %>
 <% end %>
 
 <h2>Nach den gewünschten Zutaten</h2>
-<%= form_tag recipes_path, :method => :get do %>
-  <div class="field multi">
-    <% Ingredient.all.each do |ingredient| %>
+
+
+<%= bootstrap_form_tag url: recipes_path, method: :get do |f| %>
+  <%= f.form_group :wanted_ingredient_ids do %>
+    <% @ingredients.each do |ingredient| %>
       <label>
         <%= check_box_tag "wanted_ingredient_ids[]", ingredient.id %>
         <%= ingredient.name %>
       </label>
       <br>
     <% end %>
-  </div>
+  <% end %>
 
   <div class="actions">
     <%= submit_tag "Suchen" %>

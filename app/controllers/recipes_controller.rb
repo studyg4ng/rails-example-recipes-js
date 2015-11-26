@@ -12,13 +12,14 @@ class RecipesController < ApplicationController
       ingredients = Ingredient.find( params[:wanted_ingredient_ids] ).map(&:name)
       @description = "Rezepte die #{ingredients.join(' und ')} enthalten"
     else
-      @recipes = Recipe.all
+      @recipes = Recipe.includes(:ingredients).all
       @desicription = "Alle Rezepte"
     end
   end
 
   # GET /recipes/search
   def search
+    @ingredients = Ingredient.all
   end
 
   # GET /recipes/1

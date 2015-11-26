@@ -8,7 +8,7 @@ class Recipe < ActiveRecord::Base
   validates :grade,        inclusion: { in: 1..5 }
 
   def self.fuzzy_find_by_name( s )
-    where(arel_table[:name].matches("%#{s}%"))
+    includes(:ingredients).where(arel_table[:name].matches("%#{s}%"))
   end
 
   def self.find_by_ingredients( wanted_ingredients )
@@ -21,7 +21,7 @@ class Recipe < ActiveRecord::Base
     ingredient_ids_csv = ingredient_ids.join(",")
 
     # find recipe who contain ALL the specified ingredients
-    recipe_ids = Contain.find_by_sql(<<-END_SQL).map{|r| r.recipe_id}
+    recipe_ids = Contain.includes(:ingredients).find_by_sql(<<-END_SQL).map{|r| r.recipe_id}
       SELECT recipe_id, count(recipe_id) 
       FROM contains  
       WHERE ingredient_id IN ( #{ingredient_ids_csv} ) 
