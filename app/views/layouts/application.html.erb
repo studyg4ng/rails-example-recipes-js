@@ -18,6 +18,15 @@
 
   <div id="main-container" class="container">
     <div class="row">
+      <div class="col-xs-3"></div>
+      <div class="col-xs-9">
+        <% flash.each do |name, msg| -%>
+          <%= content_tag :div, msg, class: "flash alert fade in " + bootstrap_class_for(name) %>
+        <% end -%>
+      </div>
+    </div>
+
+    <div class="row">
       <div class="col-xs-3">
         &nbsp;
       </div>
@@ -25,6 +34,7 @@
         <%= yield :heading %>
       </div>
     </div>
+
     <div class="row">
       <div id="sidebar" class="col-xs-3">
         <ul class="nav nav-pills nav-stacked">

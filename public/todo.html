@@ -34,7 +34,7 @@
 
       #page {
         background-color: #f0f0f0;
-        width: 750px;
+        width: 924px;
         margin: 0;
         margin-left: auto;
         margin-right: auto;
@@ -46,7 +46,7 @@
         border: 3px solid #aaa;
         border-top: none;
         padding: 25px;
-        width: 500px;
+        width: 650px;
       }
 
       #sidebar {
@@ -224,11 +224,49 @@
             </li>
 
             <li>
-              <h2>Javascript, jQuery, AJAX</h2>
-              <p>Back in development: Watch <b>Railscast #136 jQuery
-                &amp; Ajax (revised)</b>. Use what you learn there
-              to make adding an ingredient while creating a new Recipe easier.
-              (load and send the new_ingredient form with ajax)</p>
+              <h2>Use rails-ujs: Unobstrusive Javascript</h2>
+              <p>Look at the HTML-Code for <a href="/ingredients">deleting and
+                ingredient</a>: where does the javascript to confirm come from?</p>
+              <p>Try applying the same to a normal navigation link - does it also show
+              the confirmation-popup?</p>
+              </li>
+
+            <li>
+              <h2>Use Ecmascript 6</h2>
+              <p>Add the following two lines to the Gemfile, bundle + restart the server</p>
+              <pre>gem 'sprockets'
+gem 'sprockets-es6', require: 'sprockets/es6'</pre>
+              <p>No save the follwing code as <kbd>/app/assets/javascript/hello_world.js.es6:</p>
+                <pre>class HelloWorld {  
+  constructor(name) {
+    this.name = name;
+  }
+ 
+  sayHello() {
+    alert("Hello " + this.name);
+  }
+}</pre>
+              <p>Check if it is transpiled to javascript correctly!</p>
+              <p>Now add code in <kbd>/app/assets/javascript/main.js.es6</kbd> to 
+              use this class for the Greetings-Form on the homepage.
+              Be unobstrusive about it!</p>
+            </li>
+
+            <li>
+              <h2>Switch on Turbolinks</h2>
+              <p>Uncomment turbolink in the Gemfile, bundle + restart the server</p>
+              <p>Add the following to application.js:</p>
+              <pre>//= require turbolinks</pre>
+              <p>Can you detect a difference?</p>
+              <p>Turbolinks are on by default, you have been using them in your other rails apps from the start.</p>
+            </li>
+
+            <li>
+              <h2>Use AJAX with Rails</h2>
+              <p>In page <a href="/ingredients">ingredients</a>: 
+              the 'edit' link should not link to another page, but
+              load the edit-form right into the current page, replacing the
+              display of the ingredient name</p>
             </li>
           </ol>
         </div>
