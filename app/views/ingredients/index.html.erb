@@ -5,7 +5,7 @@
 <p><%= link_to 'Neue Zutat', new_ingredient_path %></p>
 
 <% @ingredients.each do |ingredient| %>
-  <p><%= ingredient.name %>
+  <p><span><%= ingredient.name %></span>
   <%= link_to 'Edit', edit_ingredient_path(ingredient) %>
   <%= link_to 'Destroy', ingredient, method: :delete, data: { confirm: 'Are you sure?' } %>
 <% end %>
