@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 
 # Rails Version currently supported by railsinstallier (as of oct 2015)
 gem 'rails', '4.2.0'
+gem 'tzinfo-data'
 
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
