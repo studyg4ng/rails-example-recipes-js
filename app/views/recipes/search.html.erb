@@ -11,7 +11,7 @@
 
 <h2>Nach dem Namen des Rezeptes</h2>
 
-<%= bootstrap_form_tag url: recipes_path do |f| %>
+<%= bootstrap_form_tag url: recipes_path, method: :get do |f| %>
   <%= f.text_field :search, label: 'Suchbegriff' %>
   <%= f.submit "Suchen" %>
 <% end %>
