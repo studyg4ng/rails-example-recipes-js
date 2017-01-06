@@ -4,4 +4,10 @@ class StaticPagesController < ApplicationController
 
   def home
   end
+
+  def playground
+  end
+
+  def todo
+  end
 end

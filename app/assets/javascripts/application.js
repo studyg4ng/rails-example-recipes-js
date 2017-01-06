@@ -14,3 +14,13 @@
 //= require jquery_ujs
 //= require bootstrap
 //= require_tree .
+
+  $(function(){
+    $("a[data-background-color]").click(function(e) {
+      e.preventDefault();
+      var backgroundColor = $(this).data("background-color") || this.style.backgroundColor;
+      var textColor       = $(this).data("text-color")       || this.style.color;
+      this.style.backgroundColor = backgroundColor;
+      this.style.color = textColor;
+    });
+  });

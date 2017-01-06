@@ -1,0 +1,70 @@
+<% content_for :heading do %>
+  <h1>ToDo</h1>
+<% end %>
+
+
+<ol>
+  <li>
+    <h2>Load seed data</h2>
+    <p>What is seed data?  Where is the actual file located? 
+    And what was that rake task to load it?</p>
+  </li>
+
+  <li>
+    <h2>Understand Unobstrusive JavaScript</h2>
+    <p>Look at the HTML-Code for <a href="/ingredients">deleting and
+      ingredient</a>: where does the JavaScript to confirm come from?</p>
+    <p>Try applying the same to a normal navigation link - does it also show
+    the confirmation-popup?</p>
+    <p>Compare the code in the <%= link_to 'JavaScript Playground', playground_path %>
+    with what you learned about unobstrusive JavaScript 
+    <a href="https://backend-development.github.io/javascript_and_ajax.html#unobtrusive-javascript">in backend-development.github.io</a>. You will be needing it soon!</p>
+  </li>
+
+  <li>
+    <h2>Use Plain JavaScript</h2>
+    <p>Write JavaScript code that adds the current time
+      to every page.</p>
+    <p>There's nothing Rails specific about this, just a few
+      lines of jQuery, a new Date and setInterval should suffice. </p>
+  </li>            
+
+  <li>
+    <h2>Use Ecmascript 6</h2>
+    <p>Add the <a href="https://github.com/TannerRogalsky/sprockets-es6">gem sprockets-es6</a> to the rails app (as described 
+      on the gems homepage)</p>
+    <p>Now save the follwing ES6 class as <kbd>/app/assets/JavaScript/hello_world.js.es6:</p>
+      <pre>class HelloWorld {  
+    constructor(name) {
+      this.name = name;
+    }
+
+    sayHello() {
+      alert("Hello " + this.name);
+    }
+  }</pre>
+    <p>Check if it is transpiled to JavaScript correctly!</p>
+    <p>Now add code in <kbd>/app/assets/JavaScript/main.js.es6</kbd> to 
+    use this class for the Greetings-Form on the homepage.
+    Be unobstrusive about it!</p>
+  </li>
+
+  <li>
+    <h2>Use AJAX with Rails</h2>
+    <p>In page <%= link_to 'ingredients', ingredients_path %>: 
+    the 'edit' link should not link to another page, but
+    load the edit-form right into the current page, replacing the
+    display of the ingredient name</p>
+    <p>Follow the <%= link_to 'explanation on backend-development.github.io', "https://backend-development.github.io/javascript_and_ajax.html#the-recipe-ingredients-example" %>.</p>
+  </li>
+
+  <li>
+    <h2>Switch on Turbolinks</h2>
+    <p>Uncomment turbolink in the Gemfile, bundle + restart the server</p>
+    <p>Add the following to application.js:</p>
+    <pre>//= require turbolinks</pre>
+    <p>Can you detect a difference?</p>
+    <p>Turbolinks are on by default, you have been using them in your other rails apps from the start.</p>
+  </li>  
+</ol>
+
