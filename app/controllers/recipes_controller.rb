@@ -13,7 +13,7 @@ class RecipesController < ApplicationController
       @description = "Rezepte die #{ingredients.join(' und ')} enthalten"
     else
       @recipes = Recipe.includes(:ingredients).all
-      @desicription = "Alle Rezepte"
+      @description = "Alle Rezepte"
     end
   end
 
