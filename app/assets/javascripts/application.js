@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap
+//= require turbolinks
 //= require_tree .
 
   $(function(){
@@ -24,3 +25,11 @@
       this.style.color = textColor;
     });
   });
+
+$(window).bind('turbolinks:load', function() {
+    $('#content').prepend('<p id="time"></p>')
+
+    setInterval(
+        () => {$('#time').html(new Date().toTimeString())}
+    ,1000);
+});
