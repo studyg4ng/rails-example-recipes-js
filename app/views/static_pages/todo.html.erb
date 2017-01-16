@@ -8,6 +8,7 @@
     <h2>Load seed data</h2>
     <p>What is seed data?  Where is the actual file located? 
     And what was that rake task to load it?</p>
+    <p>A:Seed-Data allows us to create default data easily. (db/seeds.rb, db:seed)</p>
   </li>
 
   <li>
@@ -19,6 +20,9 @@
     <p>Compare the code in the <%= link_to 'JavaScript Playground', playground_path %>
     with what you learned about unobstrusive JavaScript 
     <a href="https://backend-development.github.io/javascript_and_ajax.html#unobtrusive-javascript">in backend-development.github.io</a>. You will be needing it soon!</p>
+    <p> A: Data Attribute</p>
+    <p> A: data: { confirm: 'Are you sure?' }</p>
+    <p> A: That's fine. Seperate HTML from JS</p>
   </li>
 
   <li>
@@ -27,6 +31,13 @@
       to every page.</p>
     <p>There's nothing Rails specific about this, just a few
       lines of jQuery, a new Date and setInterval should suffice. </p>
+
+    <p>A: asssets/javascript/application.js</p>
+    <p>"$('#content').prepend('	&#60;p id="time"	&#62;	&#60;/p	&#62;')</p>
+
+    <p>setInterval(
+    () => {$('#time').html(new Date().toTimeString())}
+    ,1000);"</p>
   </li>            
 
   <li>
@@ -47,6 +58,15 @@
     <p>Now add code in <kbd>/app/assets/JavaScript/main.js.es6</kbd> to 
     use this class for the Greetings-Form on the homepage.
     Be unobstrusive about it!</p>
+
+    <p>A: gem install sprockets-es6</p>
+    <p>A: gem 'sprockets'</p>
+    <p>A: gem 'sprockets-es6'</p>
+    <p>A: add .es6 extension to file name</p>
+
+    <p>let hello = new HelloWorld("Thomas & Patrick");</p>
+
+    <p>hello.sayHello();</p>
   </li>
 
   <li>
@@ -56,6 +76,9 @@
     load the edit-form right into the current page, replacing the
     display of the ingredient name</p>
     <p>Follow the <%= link_to 'explanation on backend-development.github.io', "https://backend-development.github.io/javascript_and_ajax.html#the-recipe-ingredients-example" %>.</p>
+
+    <p>A: edit.js.erb # js code</p>
+    <p>A: index.html.erb #add remote:true</p>
   </li>
 
   <li>
@@ -67,6 +90,13 @@
       load, change your code if necessary!</p>
     <p>Turbolinks are on by default, you have been using them in your other rails apps 
       without noticing. </p>
+
+    <p>A: https://github.com/turbolinks/turbolinks</p>
+    <p>A: SPA perfomance</p>
+    <p>JS will not be executed when navigating around</p>
+    <p>$(window).bind("turbolinks:load", function() {
+      // ...
+      })</p>
   </li>  
 </ol>
 
